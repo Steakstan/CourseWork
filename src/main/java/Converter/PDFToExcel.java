@@ -38,13 +38,13 @@ public class PDFToExcel {
             }
         }
 
+
+
+
+
+        ExcelStyler.addBordersAndAlignTextInFirstFourColumns(sheet);
         // Set up the header row in the Excel sheet
-
-
-        // Uncomment the following lines if you want to remove empty rows or add borders
-        // ExcelStyler.removeEmptyRows(sheet);
-        ExcelStyler.addBordersToDataArea(sheet);
-        ExcelStyler.setupHeaderRow(sheet);
+        ExcelStyler.styleFirstRowAndAutofitColumns(sheet);
         // Write the workbook content to an Excel file
         try (FileOutputStream outputStream = new FileOutputStream(excelFilePath)) {
             workbook.write(outputStream);
