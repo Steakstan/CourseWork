@@ -44,6 +44,8 @@ public class PostProcessing {
     public static int checkAndFillEmptyCellsInFourthColumn(Sheet sheet, int rowCount) {
         int lastRow = sheet.getLastRowNum();
 
+
+
         for (int rowIndex = lastRow; rowIndex >= 2; rowIndex--) {
             Row currentRow = sheet.getRow(rowIndex);
 
@@ -51,7 +53,13 @@ public class PostProcessing {
                 Cell currentCell = currentRow.getCell(3);
 
                 if (currentCell == null || currentCell.getCellType() == CellType.BLANK) {
-                    Cell cellAbove = sheet.getRow(rowIndex + 1).getCell(3);
+                    Cell cellAbove = null;
+                    if (rowIndex + 1 <= lastRow) {
+                        Row rowAbove = sheet.getRow(rowIndex + 1);
+                        if (rowAbove != null) {
+                            cellAbove = rowAbove.getCell(3);
+                        }
+                    }
 
                     if (cellAbove != null && cellAbove.getCellType() == CellType.STRING) {
                         if (currentCell == null) {

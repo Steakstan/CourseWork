@@ -5,12 +5,14 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class DeviceModelProcessor {
-
     public static int processModelsToExcel(String line, Sheet sheet, int rowCount) {
-        for (DeviceModel device : DeviceModel.values()) {
-            Matcher deviceMatcher = device.getPattern().matcher(line);
+        String[] deviceModels = DeviceModels.getDeviceModels(); // Получаем массив моделей из отдельного класса
+
+        for (String model : deviceModels) {
+            Matcher deviceMatcher = Pattern.compile("\\b" + model + "\\b").matcher(line);
 
             if (deviceMatcher.find()) {
                 Row deviceRow = sheet.getRow(rowCount);
@@ -19,7 +21,7 @@ public class DeviceModelProcessor {
                 }
 
                 Cell deviceCell = deviceRow.createCell(2);
-                deviceCell.setCellValue(device.name());
+                deviceCell.setCellValue(model);
                 rowCount++;
             }
         }

@@ -40,12 +40,13 @@ public class PDFToExcel {
 
 
 
-
-
-        ExcelStyler.addBordersAndAlignTextInFirstFourColumns(sheet);
-        // Set up the header row in the Excel sheet
         ExcelStyler.styleFirstRowAndAutofitColumns(sheet);
         // Write the workbook content to an Excel file
+
+        ExcelStyler.addBordersAndAlignTextInFirstFourColumns(sheet);
+        //OrderInfoChecker.checkOrderInformation(sheet);
+        //ColumnCellChecker.checkAndFillEmptyCellsInFirstColumnFromBottom(sheet, rowCount);
+        //ColumnCellChecker.checkAndFillEmptyCellsInSecondColumnFromBottom(sheet, rowCount);
         try (FileOutputStream outputStream = new FileOutputStream(excelFilePath)) {
             workbook.write(outputStream);
             System.out.println("Excel file created successfully!");

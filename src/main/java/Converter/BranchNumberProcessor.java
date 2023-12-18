@@ -4,38 +4,47 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
-import java.util.regex.Matcher;
-
 public class BranchNumberProcessor {
-
-    public static int processBranchNumberToExcel(String[] words, Sheet sheet, int rowCount) {
-        String foundBranchNumber;
-
+    public static String processBranchNumberToExcel(String[] words, Sheet sheet, int rowCount) {
         for (int i = 0; i < words.length; i++) {
-            foundBranchNumber = extractBranchNumber(words[i]);
-
+            String foundBranchNumber = extractBranchNumber(words[i]);
             if (foundBranchNumber != null) {
                 if (!checkOrderAfterBranch(words, i)) {
                     Row row = createRowIfNull(sheet, rowCount);
                     setCellValue(row, 1, foundBranchNumber);
+                    return foundBranchNumber;
                 }
                 break;
             }
         }
-
-        return rowCount;
+        return null;
     }
 
     private static String extractBranchNumber(String word) {
-        for (BranchPattern pattern : BranchPattern.values()) {
-            Matcher matcher = pattern.getPattern().matcher(word);
-            if (matcher.find()) {
-                String foundBranchNumber = matcher.group();
-                if (foundBranchNumber.length() == 5 || foundBranchNumber.length() == 6) {
-                    return foundBranchNumber;
+        for (String branchNumber : BranchNumbers.BRANCH_NUMBERS) {
+            if (word.matches("\\b" + branchNumber + "\\w{3,4}\\b")) {
+                if ((word.length() == 5 || word.length() == 6) &&
+                        !word.equalsIgnoreCase("120151") &&
+                        !word.equalsIgnoreCase("ESSEN") &&
+                        !word.equalsIgnoreCase("WILLI") &&
+                        !word.equalsIgnoreCase("AUTARK") &&
+                        !word.equalsIgnoreCase("ANZING") &&
+                        !word.equalsIgnoreCase("FROST") &&
+                        !word.equalsIgnoreCase("BRAND") &&
+                        !word.equalsIgnoreCase("PALLEN") &&
+                        !word.equalsIgnoreCase("12529") &&
+                        !word.equalsIgnoreCase("16727") &&
+                        !word.equalsIgnoreCase("BOSCH") &&
+                        !word.equalsIgnoreCase("CENTER") &&
+                        !word.equalsIgnoreCase("CLEAN") &&
+                        !word.equalsIgnoreCase("PASSAU") &&
+                        !word.equalsIgnoreCase("HALLE") &&
+                        !word.equalsIgnoreCase("PAMPOW")) {
+                    return word;
                 }
             }
         }
+        // Consider returning a specific value or handling this case differently
         return null;
     }
 

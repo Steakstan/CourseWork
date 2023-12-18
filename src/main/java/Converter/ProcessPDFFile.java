@@ -32,6 +32,7 @@ public class ProcessPDFFile {
                 DeliveryInfo.processDeliveryInfo(sheet, rowCount, extractedLine);
 
             }
+
             PostProcessing.checkAndFillEmptyCellsInFirstColumn(sheet, rowCount);
             PostProcessing.checkAndFillEmptyCellsInSecondColumn(sheet, rowCount);
             PostProcessing.checkAndFillEmptyCellsInFourthColumn(sheet, rowCount);

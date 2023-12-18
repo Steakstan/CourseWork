@@ -18,9 +18,14 @@ public class DeliveryInfo {
     }
 
     private static String extractDeliveryDate(String line) {
-        Pattern deliveryPattern = Pattern.compile("KW\\s\\d{2}\\.\\d{4}");
+        Pattern deliveryPattern = Pattern.compile("KW\\s\\d{2}\\.\\d{4}|Auslauf|Neuanlauf");
         Matcher deliveryMatcher = deliveryPattern.matcher(line);
-        return deliveryMatcher.find() ? deliveryMatcher.group() : null;
+
+        String lastMatch = null;
+        while (deliveryMatcher.find()) {
+            lastMatch = deliveryMatcher.group();
+        }
+        return lastMatch;
     }
 
     private static boolean shouldProcessDeliveryInfo(String deliveryDate, String line) {
