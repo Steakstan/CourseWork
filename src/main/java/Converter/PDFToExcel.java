@@ -44,7 +44,7 @@ public class PDFToExcel {
         // Write the workbook content to an Excel file
 
         ExcelStyler.addBordersAndAlignTextInFirstFourColumns(sheet);
-        //OrderInfoChecker.checkOrderInformation(sheet);
+       OrderInfoChecker.checkOrderInformation(sheet);
         //ColumnCellChecker.checkAndFillEmptyCellsInFirstColumnFromBottom(sheet, rowCount);
         //ColumnCellChecker.checkAndFillEmptyCellsInSecondColumnFromBottom(sheet, rowCount);
         try (FileOutputStream outputStream = new FileOutputStream(excelFilePath)) {
