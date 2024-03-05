@@ -18,7 +18,7 @@ public class DeliveryInfo {
     }
 
     private static String extractDeliveryDate(String line) {
-        Pattern deliveryPattern = Pattern.compile("KW\\s\\d{2}\\.\\d{4}|Auslauf|Neuanlauf|ersatlos|ausgelaufen|Bezugsberechtigung");
+        Pattern deliveryPattern = Pattern.compile("KW\\s\\d{2}\\.\\d{4}|Auslauf|Neuanlauf|ersatlos|ausgelaufen|Bezugsberechtigung|nicht bezogen|Berechtigung|nicht bekannt|unbekannt");
         Matcher deliveryMatcher = deliveryPattern.matcher(line);
 
         String lastMatch = null;

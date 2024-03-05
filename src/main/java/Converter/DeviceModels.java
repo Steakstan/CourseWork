@@ -2536,6 +2536,7 @@ public class DeviceModels {
             "Z9802PFBY0",
             "Z9802PFDY0",
             "Z9802PFMY0",
+            "HBD761AB61",
             "ZC045AY0",
             "TPL586EX",
             "ZC045DY0",
@@ -2544,7 +2545,10 @@ public class DeviceModels {
             "T68STV4L0",
             "EX675HEC1E",
             "HBG5780S6",
-            "T58STS1L0"
+            "T58STS1L0",
+            "Bitte über die Kundennr",
+            "EX4B",
+            "Z51IBK1S1"
     };
 
     public static String[] getDeviceModels() {
