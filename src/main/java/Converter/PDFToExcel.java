@@ -12,11 +12,11 @@ import static Converter.ProcessPDFFile.processPDFFile;
 public class PDFToExcel {
 
     public static void main(String[] args) {
-        // Path to the directory containing the PDF files
-        String directoryPath = "/Users/user/Documents/AB/";
+        // Path to the directory containing the PDF filesw
+        String directoryPath = "C:\\Users\\andru\\Documents\\XXXLUTZ\\Auftrage";
 
         // Path to the Excel file that will be created
-        String excelFilePath = "/Users/user/Documents/AB-Nummern.xlsx";
+        String excelFilePath = "C:\\Users\\andru\\Documents\\XXXLUTZ\\AB-Nummern.xlsx";
 
         // Retrieve files from the specified directory
         File directory = new File(directoryPath);
@@ -44,9 +44,9 @@ public class PDFToExcel {
         // Write the workbook content to an Excel file
 
         ExcelStyler.addBordersAndAlignTextInFirstFourColumns(sheet);
-       OrderInfoChecker.checkOrderInformation(sheet);
-        //ColumnCellChecker.checkAndFillEmptyCellsInFirstColumnFromBottom(sheet, rowCount);
-        //ColumnCellChecker.checkAndFillEmptyCellsInSecondColumnFromBottom(sheet, rowCount);
+        OrderInfoChecker.checkOrderInformation(sheet);
+        ColumnCellChecker.checkAndFillEmptyCellsInFirstColumnFromBottom(sheet, rowCount);
+        ColumnCellChecker.checkAndFillEmptyCellsInSecondColumnFromBottom(sheet, rowCount);
         try (FileOutputStream outputStream = new FileOutputStream(excelFilePath)) {
             workbook.write(outputStream);
             System.out.println("Excel file created successfully!");

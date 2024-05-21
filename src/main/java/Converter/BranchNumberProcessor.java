@@ -38,7 +38,14 @@ public class BranchNumberProcessor {
                         !word.equalsIgnoreCase("CENTER") &&
                         !word.equalsIgnoreCase("CLEAN") &&
                         !word.equalsIgnoreCase("PASSAU") &&
+                        !word.equalsIgnoreCase("14513") &&
                         !word.equalsIgnoreCase("HALLE") &&
+                        !word.equalsIgnoreCase("12439") &&
+                        !word.equalsIgnoreCase("17033") &&
+                        !word.equalsIgnoreCase("BLACK") &&
+                        !word.equalsIgnoreCase("BRONZE") &&
+                        !word.equalsIgnoreCase("SILVER") &&
+                        !word.equalsIgnoreCase("12687") &&
                         !word.equalsIgnoreCase("PAMPOW")) {
                     return word;
                 }

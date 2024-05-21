@@ -2,7 +2,7 @@ package Converter;
 
 public class BranchNumbers
 {
-    public static final String[] BRANCH_NUMBERS = {"00",
+    public static final String[] BRANCH_NUMBERS = {
             "00",
             "03",
             "04",
@@ -16,11 +16,13 @@ public class BranchNumbers
             "15",
             "16",
             "17",
+            "1G",
             "1H",
             "1S",
             "1T",
             "1W",
             "2A",
+            "2G",
             "3E",
             "3M",
             "4L",
@@ -34,6 +36,7 @@ public class BranchNumbers
             "BD",
             "BG",
             "BJ",
+            "BL",
             "BO",
             "BR",
             "BS",
@@ -57,13 +60,17 @@ public class BranchNumbers
             "F2",
             "FD",
             "FH",
+            "FK",
             "FN",
             "FR",
             "FT",
+            "G4",
             "GI",
+            "GT",
             "H0",
             "H1",
             "H3",
+            "H5",
             "HA",
             "HD",
             "HG",
@@ -84,6 +91,7 @@ public class BranchNumbers
             "M1",
             "M2",
             "M3",
+            "M4",
             "MN",
             "MR",
             "NA",
@@ -119,11 +127,13 @@ public class BranchNumbers
             "WG",
             "WI",
             "WM",
+            "WS",
             "WV",
             "WX",
             "WY",
             "WZ",
             "YC",
             "YW",
-            "ZW"};
+            "ZW"
+    };
 }
