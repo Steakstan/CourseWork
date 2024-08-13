@@ -46,6 +46,8 @@ public class BranchNumberProcessor {
                         !word.equalsIgnoreCase("BRONZE") &&
                         !word.equalsIgnoreCase("SILVER") &&
                         !word.equalsIgnoreCase("12687") &&
+                        !word.equalsIgnoreCase("KRANZ") &&
+                        !word.equalsIgnoreCase("CANER") &&
                         !word.equalsIgnoreCase("PAMPOW")) {
                     return word;
                 }

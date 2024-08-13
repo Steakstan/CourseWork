@@ -46,7 +46,7 @@ public class PDFToExcel {
         ExcelStyler.addBordersAndAlignTextInFirstFourColumns(sheet);
         OrderInfoChecker.checkOrderInformation(sheet);
         ColumnCellChecker.checkAndFillEmptyCellsInFirstColumnFromBottom(sheet, rowCount);
-        ColumnCellChecker.checkAndFillEmptyCellsInSecondColumnFromBottom(sheet, rowCount);
+       ColumnCellChecker.checkAndFillEmptyCellsInSecondColumnFromBottom(sheet, rowCount);
         try (FileOutputStream outputStream = new FileOutputStream(excelFilePath)) {
             workbook.write(outputStream);
             System.out.println("Excel file created successfully!");
